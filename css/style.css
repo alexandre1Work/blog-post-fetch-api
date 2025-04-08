@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: Helvetica, sans-serif, sans-serif;
 }
 
 /* Estilização do corpo da página */
@@ -138,7 +138,6 @@ h2 {
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
-  border-left: 4px solid #007bff;
 }
 
 #comments-container h3 {
@@ -149,6 +148,35 @@ h2 {
 #comments-container p {
   font-size: 1em;
   color: #444;
+}
+
+.comment-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  border-left: 3px solid #007bff;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.left-col h3 {
+  margin: 0;
+  color: blue;
+}
+
+.left-col p {
+  margin: 5px 0 0 0;
+}
+
+.btnDelete {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  height: fit-content;
 }
 
 /* Formulário */
@@ -193,3 +221,4 @@ input[type="submit"] {
 .hide {
   display: none;
 }
+

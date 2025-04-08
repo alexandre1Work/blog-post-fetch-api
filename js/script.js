@@ -74,15 +74,32 @@ async function getPost(id) {
 
 async function createComment(comment) {
     const div = document.createElement("div");
+    div.classList.add("comment-item");
+
+    const leftCol = document.createElement("div");
+    leftCol.classList.add("left-col");
+
     const email = document.createElement("h3");
+    email.innerText = comment.email;
+
     const commentBody = document.createElement("p");
+    commentBody.innerText = comment.body;
 
-    email.innerText = comment.email
-    commentBody.innerText = comment.body
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Deletar";
+    deleteBtn.classList.add("btnDelete");
 
-    div.appendChild(email);
-    div.appendChild(commentBody);
-    commentsContainer.appendChild(div)
+    deleteBtn.addEventListener("click", () => {
+        deleteComment(comment.id, div);
+    });
+
+    leftCol.appendChild(email);
+    leftCol.appendChild(commentBody);
+
+    div.appendChild(leftCol);
+    div.appendChild(deleteBtn);
+
+    commentsContainer.appendChild(div);
 }
 
 async function postComment(comment) {
@@ -97,6 +114,18 @@ async function postComment(comment) {
     const data = await response.json();
 
     createComment(data)
+}
+
+async function deleteComment(commentId, element) {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/comments/${commentId}`, {
+        method: "DELETE"
+    })
+
+    if (response.ok) {
+        element.remove();
+    } else {
+        alert("Erro ao deletar comentário.");
+    }
 }
 
 if(!postId) {
