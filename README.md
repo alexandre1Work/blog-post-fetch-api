@@ -12,6 +12,7 @@ Este projeto é uma aplicação web que consome uma API de posts fictícios e ex
 - Visualização de um post específico
 - Exibição de comentários
 - Adição de novos comentários
+- Exclusão de comentários
 
 ### 🛠️ Tecnologias Utilizadas
 
