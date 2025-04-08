@@ -177,6 +177,7 @@ h2 {
   padding: 8px 16px;
   cursor: pointer;
   height: fit-content;
+  border-radius: 5px;
 }
 
 /* Formulário */
